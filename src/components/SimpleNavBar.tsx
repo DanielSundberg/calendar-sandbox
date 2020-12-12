@@ -17,7 +17,7 @@ export const SimpleNavBar = observer((props: {title: string}) => {
                 onClick={() => history.goBack()}
                 style={theme.headerText()}
             >
-                <Icon name="angle left" />
+                <Icon name="bars" />
             </Menu.Item>
             <Menu.Item header className="borderless item left" style={theme.softMenu()}>
                 {props.title}

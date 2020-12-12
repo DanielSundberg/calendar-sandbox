@@ -15,7 +15,7 @@ import { CalendarForm } from './components/CalendarForm';
 import { EventForm } from './components/EventForm';
 
 const App = () => {
-    console.log('Starting AARR!'); // tslint:disable-line
+    console.log('Starting Calendar!'); // tslint:disable-line
     return (
         <Router>
             <RootStoreContext.Provider value={rootStore}>

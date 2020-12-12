@@ -1,5 +1,23 @@
 TODO:
 
+* Show light gry circle on todays date
+* Show brighter circle on selected date
+* Grey out weekends a bit
+* Check if week number if swedish style
+* Grey out other months
+* Swipe to change month
+* Show current month in header
+* Show badge on dates that has an event
+* Show list of events blow calender
+
+* Add event
+
+* Edit event
+
+* Configure week number start of year
+* Configure start of week
+
+
 * Playground, can I make calendar interaction more productive?
 
 * Implement rolling month calendar ui
@@ -7,3 +25,4 @@ TODO:
 * List with todays events
 * Edit/add form
 * Edit without pressing edit button
+
