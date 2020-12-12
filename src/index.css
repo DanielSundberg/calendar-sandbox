@@ -57,6 +57,12 @@ p {
     color: #000000;
 }
 
+.calendar-other-month {
+    display: block;
+    text-align: center;
+    background-color: rgb(24, 24, 24);
+}
+
 .calendar-has-event {
     display: inline-block;
     vertical-align: top;

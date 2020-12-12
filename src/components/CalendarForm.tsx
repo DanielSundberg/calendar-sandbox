@@ -15,7 +15,7 @@ export const CalendarForm = observer(() => {
 
     return (
         <div className="container">
-            <SimpleNavBar title="Calendar sandbox" />
+            <SimpleNavBar title={calendar.getDisplayHeader()} />
             <div className="ui eight column grid" style={fullscreenBelowMenuStyle}>
                 <div className="row" style={theme.blogText()}>
                     <div className="sixteen wide column">

@@ -11,7 +11,6 @@ export class CalendarStore {
         makeObservable(this, {
             selectedDate: observable
         });
-        // this.selectedDate = new Date("2020-12-11");
 
         this.events = [
             new CalendarEvent(new Date("2020-12-01 14:30:00"), new Date("2020-12-01 14:45:00"), "Möte #1", "Lite description"), 
@@ -49,7 +48,6 @@ export class CalendarStore {
 
     getEvents() : CalendarEvent[] {
         let events = this.events.filter(e => { 
-            console.log(this.selectedDate);
             return e.start.getFullYear() === this.selectedDate.getFullYear() && 
                 e.start.getMonth() === this.selectedDate.getMonth() && 
                 e.start.getDate() === this.selectedDate.getDate();
@@ -57,4 +55,7 @@ export class CalendarStore {
         return events;
     }
 
+    getDisplayHeader(): string {
+        return `${moment(this.selectedDate).format('MMMM yyyy')}`;
+    }
 }

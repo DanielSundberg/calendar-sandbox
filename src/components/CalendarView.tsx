@@ -15,11 +15,14 @@ export const CalendarView = observer(() => {
         return [...Array(7)].map((x, i) => {
             const day = weekStart.clone().add(i, 'day');
             const today = moment();
-            let dayClass = "calendar-day";
+            
+            // console.log(`${day.month()}-${today.month()}`)
+            let dayClass = day.month() === today.month() ? "calendar-day" : "calendar-other-month";
+
             if (moment(calendar.selectedDate).isSame(day, 'day')) {
-                dayClass += " calendar-selected"
+                dayClass = " calendar-selected"
             } else if (moment(today).isSame(day, 'day')) {
-                dayClass += " calendar-today"
+                dayClass = " calendar-today"
             }
 
             const hasEvents = calendar.hasEvents(new Date(day.format('yyyy-MM-DD')));

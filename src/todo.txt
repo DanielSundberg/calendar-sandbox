@@ -1,14 +1,12 @@
 TODO:
 
-* Make it possible to select a date
-* Show brighter circle on selected date
+* Sticky menu and calendar, https://stackoverflow.com/questions/48050506/creating-a-sticky-bar-in-semantic-ui-react-page-jumps-when-scrolling
+  * List with events should be scrollable, menu and calendar should not scroll
 
-* Grey out weekends a bit
-* Check if week number if swedish style
+* Swedish style week numbering, 2020 should have a week 53
 * Grey out other months
-* Swipe to change month
+* Swipe to change month, or other way to change month
 * Show current month in header
-* Show badge on dates that has an event
 * Show list of events blow calender
 
 * Add event
@@ -21,18 +19,16 @@ TODO:
 
 * Playground, can I make calendar interaction more productive?
 
-* Implement rolling month calendar ui
-* Week number
-* List with todays events
-* Edit/add form
-* Edit without pressing edit button
+* Edit without pressing any extra edit button
 
 * Android calendar interaction
 
-* Select which calendars to work on
+* Select which (android synced) calendars to work on
 
 
 DONE:
+* Show brighter circle on selected date
+* Make it possible to select a date
 * Show light gry circle on todays date
   * Light grey square implemented
 * Display simple calendar on screen
