@@ -5,27 +5,46 @@ import { SimpleNavBar } from './SimpleNavBar';
 import { fullscreenBelowMenuStyle } from './CustomStyles';
 import moment from 'moment';
 import { Grid } from 'semantic-ui-react';
+import * as _ from 'lodash';
 
 export const CalendarForm = observer(() => {
 
+    const { theme, calendar } = useStores();
+
     const getWeekRange = (week: number) => {
         var weekStart = moment().add(week, 'weeks').startOf('week');
-        
-        return [...Array(7)].map((_, i) => {
+
+        return [...Array(7)].map((x, i) => {
             const day = weekStart.clone().add(i, 'day');
-            const dayClass = moment().dayOfYear() === day.dayOfYear() ? "week-day calendar-today" : "week-day";
+            const today = moment();
+            let dayClass = "calendar-day";
+            if (moment(calendar.selectedDate).isSame(day, 'day')) {
+                dayClass += " calendar-selected"
+            } else if (moment(today).isSame(day, 'day')) {
+                dayClass += " calendar-today"
+            }
+
+            const hasEvents = calendar.hasEvents(new Date(day.format('yyyy-MM-DD')));
+            if (hasEvents) {
+                dayClass += " calendar-has-event"
+            }
+            // console.log(hasEvents);
 
             return (
-                <Grid.Column width="2" key={`${week}-${i}`} className={dayClass}>
+                <Grid.Column 
+                    width="2" 
+                    key={`${week}-${i}`} 
+                    className={dayClass} 
+                    data-key={day.format('yyyy-MM-DD')}
+                    onClick={(e: any) => calendar.setSelectedDate(e.target.attributes["data-key"].value)}
+                >
                     {day.format('D')}
                 </Grid.Column>
             );
         });
     }
 
-    const { theme } = useStores();
-
-    console.log("Moment locale: ", moment.locale());
+    // console.log("Moment locale: ", moment.locale());
 
     moment.updateLocale('en', { week: { dow : 1, } });
 
@@ -37,12 +56,11 @@ export const CalendarForm = observer(() => {
         );
      });
 
-    const today = moment();
-    const currentWeek = today.week();
-    console.log(today.add(2, 'weeks').week());
+    // const today = moment();
+    // console.log("Today: ", today);
 
     const weekRows = [0,1,2,3,4,5].map((_, i) => 
-        <Grid.Row>
+        <Grid.Row key={i}>
             <Grid.Column width="2" style={{fontSize: "x-small"}}>{moment().add(i, 'weeks').week()}</Grid.Column>
             {getWeekRange(i)}
         </Grid.Row>

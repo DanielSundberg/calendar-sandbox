@@ -1,7 +1,8 @@
 TODO:
 
-* Show light gry circle on todays date
+* Make it possible to select a date
 * Show brighter circle on selected date
+
 * Grey out weekends a bit
 * Check if week number if swedish style
 * Grey out other months
@@ -26,3 +27,12 @@ TODO:
 * Edit/add form
 * Edit without pressing edit button
 
+* Android calendar interaction
+
+* Select which calendars to work on
+
+
+DONE:
+* Show light gry circle on todays date
+  * Light grey square implemented
+* Display simple calendar on screen

@@ -40,6 +40,10 @@ p {
     overflow: hidden;
 }
 
+.calendar-day {
+    text-align: center;
+}
+
 .calendar-today {
     display: block;
     background-color: rgb(95, 95, 95);
@@ -48,7 +52,30 @@ p {
 
 .calendar-selected {
     display: block;
-    background-color: rgb(187, 187, 187);
+    background-color: rgb(219, 219, 219);
     text-align: center;
     color: #000000;
+}
+
+.calendar-has-event {
+    display: inline-block;
+    vertical-align: top;
+    /* padding-bottom: 10px; */
+    position: relative;
+    text-align: center;
+    /* padding: 20px 10px; */
+    /* line-height: 24px; */
+    /* color: #fff; */
+}
+
+.calendar-has-event::before {
+    transform: translateX(-50%);
+    border-radius: 100%;
+    position: absolute;
+    background: #3B83C0;
+    bottom: 6px;
+    height: 6px;
+    content: '';
+    width: 6px;
+    left: 50%;
 }
