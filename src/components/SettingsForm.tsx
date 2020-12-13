@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { useStores } from '../stores/RootStore';
-import { SimpleNavBar } from './SimpleNavBar';
+import { CalendarNavBar } from './CalendarNavBar';
 import * as _ from 'lodash';
 import { fullscreenBelowMenuStyle } from './CustomStyles';
 
@@ -32,7 +32,7 @@ export const SettingsForm = observer(() => {
 
     return (
         <div className="container">
-            <SimpleNavBar title="Settings" />
+            <CalendarNavBar title="Settings" />
 
             <div className="grid" style={fullscreenBelowMenuStyle}>
 
