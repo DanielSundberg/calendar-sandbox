@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { useStores } from '../stores/RootStore';
 import moment from 'moment';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
 import * as _ from 'lodash';
 
 export const CalendarList = observer(() => {
@@ -15,8 +15,14 @@ export const CalendarList = observer(() => {
                 <Grid.Column width="4">
                     {moment(e.start).format("HH:mm")}
                 </Grid.Column>
-                <Grid.Column width="12">
+                <Grid.Column width="8">
                     {e.title}
+                </Grid.Column>
+                <Grid.Column width="2">
+                    <Icon name="angle right" />
+                </Grid.Column>
+                <Grid.Column width="2">
+                    <Icon name="angle double right" />
                 </Grid.Column>
             </Grid.Row>
         );

@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { useStores } from '../stores/RootStore';
 import moment from 'moment';
+import 'moment/locale/sv';
 import { Grid } from 'semantic-ui-react';
 import * as _ from 'lodash';
 
@@ -10,14 +11,15 @@ export const CalendarView = observer(() => {
     const { theme, calendar } = useStores();
 
     const getWeekRange = (week: number) => {
-        var weekStart = moment().add(week, 'weeks').startOf('week');
+        var weekStart = moment(calendar.viewStart).add(week, 'weeks').startOf('week');
 
         return [...Array(7)].map((x, i) => {
             const day = weekStart.clone().add(i, 'day');
             const today = moment();
             
             // console.log(`${day.month()}-${today.month()}`)
-            let dayClass = day.month() === today.month() ? "calendar-day" : "calendar-other-month";
+            // Months outside "main month in view" should have other color
+            let dayClass = day.month() === moment(calendar.viewStart).month() ? "calendar-day" : "calendar-other-month";
 
             if (moment(calendar.selectedDate).isSame(day, 'day')) {
                 dayClass = " calendar-selected"
@@ -45,9 +47,8 @@ export const CalendarView = observer(() => {
         });
     }
 
-    // console.log("Moment locale: ", moment.locale());
-
-    moment.updateLocale('en', { week: { dow : 1, } });
+    // moment.updateLocale('en', { week: { dow : 1, } });
+    // moment.locale('sv');
 
     const weekdayshortname = moment.weekdaysShort(true).map(day => {
         return (
@@ -57,12 +58,13 @@ export const CalendarView = observer(() => {
         );
      });
 
-    // const today = moment();
-    // console.log("Today: ", today);
+    // console.log("View start: ", calendar.viewStart);
 
     const weekRows = [0,1,2,3,4,5].map((_, i) => 
         <Grid.Row key={i}>
-            <Grid.Column width="2" style={{fontSize: "x-small"}}>{moment().add(i, 'weeks').week()}</Grid.Column>
+            <Grid.Column width="2" style={{fontSize: "x-small"}}>
+                {moment(calendar.viewStart).add(i, 'weeks').week()}
+            </Grid.Column>
             {getWeekRange(i)}
         </Grid.Row>
     );

@@ -5,13 +5,11 @@ import moment from 'moment';
 
 export class CalendarStore {
     selectedDate: Date = new Date(moment().format('yyyy-MM-DD'));
+    viewStart: Date = new Date(moment().format('yyyy-MM-DD'));
+    page: number = 0;
     events: CalendarEvent[];
 
     constructor() {
-        makeObservable(this, {
-            selectedDate: observable
-        });
-
         this.events = [
             new CalendarEvent(new Date("2020-12-01 14:30:00"), new Date("2020-12-01 14:45:00"), "Möte #1", "Lite description"), 
             new CalendarEvent(new Date("2020-12-02 14:30:00"), new Date("2020-12-02 14:45:00"), "Möte #2", "Lite description"), 
@@ -30,6 +28,12 @@ export class CalendarStore {
             new CalendarEvent(new Date("2020-12-13 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #13", "Lite description"), 
             new CalendarEvent(new Date("2020-12-13 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #14", "Lite description"), 
         ];
+
+        makeObservable(this, {
+            selectedDate: observable, 
+            viewStart: observable, 
+            events: observable
+        });
     }
 
     setSelectedDate(newDate: Date) {
@@ -57,5 +61,30 @@ export class CalendarStore {
 
     getDisplayHeader(): string {
         return `${moment(this.selectedDate).format('MMMM yyyy')}`;
+    }
+
+    nextPage() {
+        runInAction(() => {
+            const nextMonth = moment(this.viewStart).add(1, 'month');
+            const firstDateOfNextMonth = moment([nextMonth.year(), nextMonth.month()]).format('yyyy-MM-DD');
+            this.viewStart = new Date(firstDateOfNextMonth);
+            this.selectedDate = this.viewStart;
+        });
+    }
+
+    prevPage() {
+        runInAction(() => {
+            const prevMonth = moment(this.viewStart).subtract(1, 'month');
+            const firstDateOfPrevMonth = moment([prevMonth.year(), prevMonth.month()]).format('yyyy-MM-DD');
+            this.viewStart = new Date(firstDateOfPrevMonth);
+            this.selectedDate = this.viewStart;
+        });
+    }
+
+    home() {
+        runInAction(() => {
+            this.selectedDate = new Date(moment().format('yyyy-MM-DD'));
+            this.viewStart = new Date(moment().format('yyyy-MM-DD'));
+        });
     }
 }

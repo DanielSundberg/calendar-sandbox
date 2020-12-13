@@ -3,15 +3,20 @@ TODO:
 * Sticky menu and calendar, https://stackoverflow.com/questions/48050506/creating-a-sticky-bar-in-semantic-ui-react-page-jumps-when-scrolling
   * List with events should be scrollable, menu and calendar should not scroll
 
-* Swedish style week numbering, 2020 should have a week 53
-* Grey out other months
-* Swipe to change month, or other way to change month
-* Show current month in header
-* Show list of events blow calender
+* Quick actions in event list (+1 day, +1 week, ...)
 
 * Add event
 
 * Edit event
+
+* Android notifications, have a look at how those can be made more flexible
+
+* Dropdown with months
+
+* Swedish style week numbering, 2020 should have a week 53
+* Grey out other months
+* Swipe to change month, or other way to change month
+
 
 * Configure week number start of year
 * Configure start of week
@@ -27,6 +32,7 @@ TODO:
 
 
 DONE:
+* Menu button, today, next, prev
 * Show brighter circle on selected date
 * Make it possible to select a date
 * Show light gry circle on todays date

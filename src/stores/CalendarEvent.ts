@@ -1,3 +1,5 @@
+import { makeObservable, observable } from "mobx";
+
 export class CalendarEvent {
     start: Date;
     end: Date;
@@ -14,5 +16,18 @@ export class CalendarEvent {
         this.end = end;
         this.title = title;
         this.description = description;
+
+        makeObservable(this, {
+            start: observable, 
+            title: observable
+        });
+    }
+
+    moveForwardOneDay() {
+
+    }
+
+    moveForwardOneWeek() {
+        
     }
 }
