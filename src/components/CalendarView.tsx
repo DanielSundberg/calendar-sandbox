@@ -5,10 +5,21 @@ import moment from 'moment';
 import 'moment/locale/sv';
 import { Grid } from 'semantic-ui-react';
 import * as _ from 'lodash';
+import { useLongPress } from './UseLongPress';
+import { useHistory } from 'react-router-dom';
 
 export const CalendarView = observer(() => {
 
     const { theme, calendar } = useStores();
+    const history = useHistory();
+
+    const longPressProps = useLongPress({
+        onClick: (e) => calendar.setSelectedDate(e.target.attributes["data-key"].value),
+        onLongPress: (e) => {
+            calendar.setSelectedDate(e.target.attributes["data-key"].value);
+            history.push(`/event/new/${moment(calendar.selectedDate).format('yyyy-MM-DD')}`);
+        },
+    });
 
     const getWeekRange = (week: number) => {
         var weekStart = moment(calendar.viewStart).add(week, 'weeks').startOf('week');
@@ -39,7 +50,8 @@ export const CalendarView = observer(() => {
                     key={`${week}-${i}`} 
                     className={dayClass} 
                     data-key={day.format('yyyy-MM-DD')}
-                    onClick={(e: any) => calendar.setSelectedDate(e.target.attributes["data-key"].value)}
+                    // onClick={(e: any) => calendar.setSelectedDate(e.target.attributes["data-key"].value)}
+                    {...longPressProps}
                 >
                     {day.format('D')}
                 </Grid.Column>

@@ -23,7 +23,7 @@ const App = () => {
                     <CheckAuth>
                         <Switch>
                             <Route exact path="/" component={CalendarForm} />
-                            <Route path="/event/:eventId" component={EventForm} />
+                            <Route path="/event/:eventId/:dateParam" component={EventForm} />
                             <Route path="/settings" component={SettingsForm} />
                             <Route path="/about" component={AboutForm} />
                         </Switch>

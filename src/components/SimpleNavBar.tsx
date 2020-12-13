@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { useStores } from '../stores/RootStore';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Icon, Menu } from 'semantic-ui-react';
 
 export const SimpleNavBar = observer((props: {title: string}) => {
@@ -23,6 +23,9 @@ export const SimpleNavBar = observer((props: {title: string}) => {
                 {props.title}
             </Menu.Item>
             <Menu.Menu position="right">
+                <Menu.Item style={theme.softMenu()} as={Link} to='/event/new'>
+                    <Icon name="plus" />
+                </Menu.Item>
                 <Menu.Item style={theme.softMenu()} onClick={() => calendar.home()}>
                     <Icon name="home" />
                 </Menu.Item>
