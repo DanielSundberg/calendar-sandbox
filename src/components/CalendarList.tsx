@@ -18,10 +18,10 @@ export const CalendarList = observer(() => {
                 <Grid.Column width="8">
                     {e.title}
                 </Grid.Column>
-                <Grid.Column width="2">
+                <Grid.Column width="2" onClick={() => e.moveForwardOneDay()}>
                     <Icon name="angle right" />
                 </Grid.Column>
-                <Grid.Column width="2">
+                <Grid.Column width="2" onClick={() => e.moveForwardOneWeek()}>
                     <Icon name="angle double right" />
                 </Grid.Column>
             </Grid.Row>

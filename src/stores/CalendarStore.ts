@@ -21,12 +21,12 @@ export class CalendarStore {
             new CalendarEvent(new Date("2020-12-12 17:30:00"), new Date("2020-12-12 18:00:00"), "Möte #2", "Lite description"),
             new CalendarEvent(new Date("2021-01-12 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #7", "Lite description"), 
             new CalendarEvent(new Date("2020-12-13 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #8", "Lite description"), 
-            new CalendarEvent(new Date("2020-12-13 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #9", "Lite description"), 
-            new CalendarEvent(new Date("2020-12-13 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #10", "Lite description"), 
-            new CalendarEvent(new Date("2020-12-13 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #11", "Lite description"), 
-            new CalendarEvent(new Date("2020-12-13 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #12", "Lite description"), 
-            new CalendarEvent(new Date("2020-12-13 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #13", "Lite description"), 
-            new CalendarEvent(new Date("2020-12-13 14:30:00"), new Date("2020-12-24 14:45:00"), "Möte #14", "Lite description"), 
+            new CalendarEvent(new Date("2020-12-13 14:40:00"), new Date("2020-12-24 14:45:00"), "Möte #9", "Lite description"), 
+            new CalendarEvent(new Date("2020-12-13 14:50:00"), new Date("2020-12-24 14:45:00"), "Möte #10", "Lite description"), 
+            new CalendarEvent(new Date("2020-12-13 15:00:00"), new Date("2020-12-24 14:45:00"), "Möte #11", "Lite description"), 
+            new CalendarEvent(new Date("2020-12-13 15:10:00"), new Date("2020-12-24 14:45:00"), "Möte #12", "Lite description"), 
+            new CalendarEvent(new Date("2020-12-13 15:20:00"), new Date("2020-12-24 14:45:00"), "Möte #13", "Lite description"), 
+            new CalendarEvent(new Date("2020-12-13 15:45:00"), new Date("2020-12-24 14:45:00"), "Möte #14", "Lite description"), 
         ];
 
         makeObservable(this, {

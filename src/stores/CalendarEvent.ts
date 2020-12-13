@@ -1,4 +1,5 @@
 import { makeObservable, observable } from "mobx";
+import moment from "moment";
 
 export class CalendarEvent {
     start: Date;
@@ -24,10 +25,12 @@ export class CalendarEvent {
     }
 
     moveForwardOneDay() {
-
+        const newStart = moment(this.start).add(1, 'day');
+        this.start = new Date(newStart.format());
     }
 
     moveForwardOneWeek() {
-        
+        const newStart = moment(this.start).add(7, 'day');
+        this.start = new Date(newStart.format());
     }
 }
