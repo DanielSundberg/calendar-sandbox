@@ -19,6 +19,7 @@ export const CalendarView = observer(() => {
             calendar.setSelectedDate(e.target.attributes["data-key"].value);
             history.push(`/event/new/${moment(calendar.selectedDate).format('yyyy-MM-DD')}`);
         },
+        ms: 300
     });
 
     const getWeekRange = (week: number) => {

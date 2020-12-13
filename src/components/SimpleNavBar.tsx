@@ -17,25 +17,11 @@ export const SimpleNavBar = observer((props: {title: string}) => {
                 onClick={() => history.goBack()}
                 style={theme.headerText()}
             >
-                <Icon name="bars" />
+                <Icon name="arrow left" />
             </Menu.Item>
             <Menu.Item header className="borderless item left" style={theme.softMenu()}>
                 {props.title}
             </Menu.Item>
-            <Menu.Menu position="right">
-                <Menu.Item style={theme.softMenu()} as={Link} to='/event/new'>
-                    <Icon name="plus" />
-                </Menu.Item>
-                <Menu.Item style={theme.softMenu()} onClick={() => calendar.home()}>
-                    <Icon name="home" />
-                </Menu.Item>
-                <Menu.Item style={theme.softMenu()} onClick={() => calendar.prevPage()}>
-                    <Icon name="arrow left" />
-                </Menu.Item>
-                <Menu.Item style={theme.softMenu()} onClick={() => calendar.nextPage()}>
-                    <Icon name="arrow right" />
-                </Menu.Item>
-            </Menu.Menu>
         </Menu>
     );
 });

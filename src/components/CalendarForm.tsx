@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { useStores } from '../stores/RootStore';
-import { SimpleNavBar } from './SimpleNavBar';
+import { CalendarNavBar } from './CalendarNavBar';
 import { fullscreenBelowMenuStyle } from './CustomStyles';
 import moment from 'moment';
 import { Grid, Segment, SegmentGroup } from 'semantic-ui-react';
@@ -15,7 +15,7 @@ export const CalendarForm = observer(() => {
 
     return (
         <div className="container">
-            <SimpleNavBar title={calendar.getDisplayHeader()} />
+            <CalendarNavBar title={calendar.getDisplayHeader()} />
             <div className="ui eight column grid" style={fullscreenBelowMenuStyle}>
                 <div className="row" style={theme.blogText()}>
                     <div className="sixteen wide column">

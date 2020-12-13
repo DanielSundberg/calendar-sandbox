@@ -12,15 +12,15 @@ export const EventForm = observer(() => {
 
     const newEvent = eventId === "new";
 
-    console.log(`New event: ${newEvent}, date: ${dateParam}`);
+    const title = newEvent ? "Add new event" : "Edit event";
 
     return (
         <div className="container">
-            {/* <SimpleNavBar title="About AARR v2.1" /> */}
+            <SimpleNavBar title={title} />
             <div className="ui grid" style={fullscreenBelowMenuStyle}>
                 <div className="row" style={theme.blogText()}>
                     <div className="sixteen wide column">
-                        <p>This is an RSS reader for <a href="http://theoldreader.com/">The Old Reader</a>.</p>
+                        <p>{`New event: ${newEvent}, date: ${dateParam}`}</p>
                     </div>
                 </div>
             </div>
