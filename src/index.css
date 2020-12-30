@@ -85,3 +85,7 @@ p {
     width: 6px;
     left: 50%;
 }
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
